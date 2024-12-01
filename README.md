@@ -20,7 +20,7 @@
 ## 사용 기술(예시)
 | **Category**         | **Technologies** |
 |----------------------|-------------|
-| **Frontend**         | html        |
+| **Frontend**         | html,css,js |
 | **Backend**          | flask |
 | **devops**           |   |
 | **Others**           | Github, Notion |
