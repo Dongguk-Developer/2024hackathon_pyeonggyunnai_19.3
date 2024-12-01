@@ -25,9 +25,9 @@
 | **Category**         | **Technologies** |
 |----------------------|-------------|
 | **Frontend**         | html        |
-| **Backend**          | flask, excel |
-| **devops**           | localhost   |
-| **Others**           | Github, Notion, Figma |
+| **Backend**          | flask |
+| **devops**           |   |
+| **Others**           | Github, Notion |
 
 ---
 ## 팀원 소개
