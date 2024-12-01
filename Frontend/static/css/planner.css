@@ -1,0 +1,105 @@
+/* 전체적인 기본 스타일 설정 */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+}
+
+/* 헤더 스타일 */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #007bff;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+/* 메인 스타일 */
+main {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+/* 할 일 목록 스타일 */
+.task-list, .planner {
+    background: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    flex: 1;
+}
+
+/* 제목 스타일 */
+h2 {
+    margin-top: 0;
+}
+
+/* 테이블 스타일 */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed; /* 셀 크기 고정 */
+}
+
+th, td {
+    padding: 10px;
+    border: 1px solid #ccc;
+    text-align: left;
+    height: 30px; /* 셀 높이 조정 */
+    overflow: hidden; /* 내용 넘칠 경우 숨김 처리 */
+    word-wrap: break-word; /* 내용이 셀 너비를 넘을 경우 줄 바꿈 */
+}
+
+th:first-child, td:first-child {
+    width: 30%; /* 타이틀 셀 너비 */
+}
+
+th:nth-child(2), td:nth-child(2) {
+    width: 70%; /* 서브타이틀 셀 너비 */
+}
+
+td[contenteditable="true"] {
+    background-color: #f9f9f9;
+    cursor: text;
+}
+
+/* placeholder 스타일 */
+td[contenteditable="true"]:empty:before, td.empty:before {
+    content: attr(data-placeholder);
+    color: #ccc;
+}
+
+/* 타임 그리드 스타일 */
+.time-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(24, 1fr);
+    grid-gap: 2px;
+}
+
+.time-cell {
+    width: 100%;
+    padding-top: 100%; /* 정사각형을 만들기 위해 */
+    background-color: #e0e0e0;
+    border: 1px solid #ccc;
+    position: relative;
+    cursor: pointer;
+}
+
+.time-cell.active.pastel-red { background-color: #FFB3BA; }
+.time-cell.active.pastel-orange { background-color: #FFDFBA; }
+.time-cell.active.pastel-yellow { background-color: #FFFFBA; }
+.time-cell.active.pastel-green { background-color: #BAFFBA; }
+.time-cell.active.pastel-blue { background-color: #BAE1FF; }
+.time-cell.active.pastel-purple { background-color: #D9BAFF; }
+
+.time-cell::after {
+    content: '';
+    display: block;
+    padding-bottom: 100%; /* 정사각형을 만들기 위해 */
+}

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>검색</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 0;
+                padding: 20px;
+                background-color: #f4f4f4;
+                color: #333;
+            }
+
+            h1,
+            h2 {
+                color: #007bff;
+            }
+
+            form {
+                margin-bottom: 20px;
+            }
+
+            label {
+                display: inline-block;
+                width: 100px;
+            }
+
+            input[type='text'] {
+                width: 200px;
+                padding: 5px;
+                margin-right: 10px;
+            }
+
+            button {
+                background-color: #007bff;
+                color: white;
+                padding: 5px 10px;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+            }
+
+            button:hover {
+                background-color: #0056b3;
+            }
+
+            .search-form {
+                background: #fff;
+                padding: 20px;
+                border-radius: 5px;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+                margin-bottom: 20px;
+            }
+
+            .search-form h2 {
+                margin-top: 0;
+            }
+
+            .search-form label {
+                display: block;
+                margin-bottom: 10px;
+                font-weight: bold;
+            }
+
+            .search-form input[type='text'] {
+                width: calc(100% - 22px);
+                padding: 10px;
+                margin-bottom: 10px;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+            }
+
+            .search-form button {
+                width: 100%;
+                padding: 10px;
+                background-color: #007bff;
+                border: none;
+                border-radius: 5px;
+                color: #fff;
+                font-size: 16px;
+                cursor: pointer;
+            }
+
+            .search-form button:hover {
+                background-color: #0056b3;
+            }
+
+            .results {
+                background: #fff;
+                padding: 20px;
+                border-radius: 5px;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.5s ease-out;
+            }
+
+            .results.show {
+                max-height: 100vh; /* 적절한 최대 높이 설정 */
+            }
+
+            .results ul {
+                list-style-type: none;
+                padding: 0;
+                margin: 0;
+            }
+
+            .result-item {
+                padding: 10px;
+                border-bottom: 1px solid #ccc;
+            }
+
+            .result-item:last-child {
+                border-bottom: none;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>장소 검색</h1>
+
+        <!-- 데이터 검색 폼 -->
+        <div class="search-form">
+            <h2>이름 검색</h2>
+            <form action="/search" method="GET">
+                <label for="query">검색어 입력:</label>
+                <input type="text" id="query" name="query" required />
+                <button type="submit">검색</button>
+            </form>
+        </div>
+
+        <!-- 검색 결과 표시 -->
+        {% if results %}
+        <h2>검색 결과:</h2>
+        <div class="results show">
+            <ul>
+                {% for item in results %}
+                <li class="result-item">
+                    <strong>{{ item.name }}</strong>: {{ item.description }}
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% endif %}
+    </body>
+</html>
